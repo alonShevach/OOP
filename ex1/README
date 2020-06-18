@@ -1,0 +1,17 @@
+alon.shevach
+
+
+-Book.java:
+this is the book class, it represents a book.
+book has title, author, year of publication and different literary aspects.
+
+-Patron.java:
+this class represent a patron that has book intrests,
+the patron has firstname lastname and book preferences.
+also he has an EnjoymentThreshold.
+
+- Library.java:
+this class represents a library, which holds books.
+each library has a maximum number of books it can hold and
+a maximum number of patron that are registered to,
+and also a maximum number of book each patron can borrow.

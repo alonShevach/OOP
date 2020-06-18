@@ -1,0 +1,108 @@
+alon.shevach
+
+
+filesprocessing package:
+- DirectoryProcessor: The main class that runs the program, also this class is dealing with
+all the thrown Exceptions.
+- Section class: this class is encharge of a specific section in the command file,
+running the orders and filters in it.
+
+Filters package:
+- Filter: An abstract class that implements the FilterFile interface and all of the other 
+filters are its extends.
+- FilterFactory: the creator of the filters, creating each filter by the given input.
+- AllFilter: All files are matched , the default filter.
+- GreaterThanFilter: the filter that checks if the file's length is bigger than a given
+number.
+- BetweenFilter: the filter that checks if file length is between the 
+given numbers (in k-bytes).
+- SmallerThan: the filter that checks if  file length is less than the given 
+number of k-bytes.
+- FileNameFilter: the filter that checks if given value equals the file name .
+- ContainsFilter: the filter that checks if given value is contained in the file name.
+- PrefixFilter: the filter that checks if given value is the prefix of the file name.
+- SuffixFilter: the filter that checks if given value is the suffix of the file name.
+- WritableFilter: the filter that checks if file have writing permission for the user? 
+- ExecutableFilter: the filter that checks if file have execution permission for the user? 
+- HiddenFilter: the filter that checks if the file a hidden file?
+
+Orders package:
+- Order: A class which represents the orders, getting a type from the user
+and this class also cas sort arrays according to the order type.
+- OrderFactory: The class creating the orders, according to the command file.
+- OrderFileComparator:  A class which implements the Comparator<File> interface and is comparing
+file objects according to the given type.
+
+#############################################
+####################Design####################
+#############################################
+
+I divided the program into 4 different packages, the main package that stores
+them all is the FileProcessing package, which is the package of all the program.
+the other packages are Exceptions, order and filter, and all of the
+packages are encharge to thier name(filter for the filters etc...)
+because i divided it to packages the program is more mudolar
+and more understandable for the user.
+
+Filter:
+i decided to devide each filter to have its own extending class, and to make
+the Filter class as an abstract, and implementing the FileFilter of java.
+this way the user can easly change things for each filter and he will be able
+to add filters more easly to the program.
+this way it is more simple and understandable, and also, because
+all if them are kind of filters.
+
+Order:
+I chose to use the same implication as i used in filter, i created an enum which
+represents the class's type of order we want, and i created an abstract method
+for getting that type.
+this way it wont be misunderstood with a different kind of sorting order,
+and will be easy to add different kind of orders.
+also i created the order as an abstarct class and made the
+other kind of orders her extends, because all of them are kind
+of orders we would like to use in the program, and we can add more
+if we like too.
+i alse created a comparator for the class, i will explain more about him
+in the sorting section.
+
+Exceptions:
+i decided to create this as a package, because i realized it is important for the
+program to be able to find the exceptions, and add some if we would see
+further problems in the program we would like to deal with.
+this package is encharge of all types of exceptions as we saw in class,
+and also this is for the kinds neccesary for this exercise.
+i chose to create them as different classes for modularity and to be
+more understandable, dividing all the problems into small problems.
+
+##############################################
+#################Sorting########################
+##############################################
+I decided to use the Quicksort algoritym we learned in classes in both
+Intro2Cs and DAST, this method runs in average of O(nlogn) which makes it
+efficient to sorting different types of files, and i chose it because we know
+nothing about the files we will get, so i needed a sorting method that
+does not need alot from the array to be, just to be a normal array of files.
+this way my program is efficient.
+i created and comparator for the class, by doing that i could compare the
+files during the run of the Quicksort, making it more understandable and
+easy to change if needed.
+
+#################################################
+##################implementation####################
+##################################################
+i chose to implement 2 classes that are mainly encharge of the program
+first is the DirectoryProcessor, which is the main class, and also the
+Section class.
+in the directory processor we get all the arguments from the user, and start
+using it for the program, and while reading the command file we devide it
+into different Sections(as described in the Excersise) each Section type
+is encharge of itself, running the orders and the filter according to the 
+section.
+i chose this way because i felt this will be more understandable and modular.
+because by creating this Class of section i did not put all the "job" on 1 class
+and i divided the problem to the different classes.
+and also it prevents problems, by continuing reading the same sections etc.
+also this way its easier to change things, because we can change the section to
+get more thing to handle with, and make it bigger.
+
+

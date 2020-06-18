@@ -1,0 +1,81 @@
+alon.shevach
+
+
+-AggressiveShip.java:
+this is the class for the aggressive kind of ship.
+this ship seeks for enemy ships trying to bash them and shoot at them
+if they gets close enough.
+
+-BasherShip.java:
+this is the class for the Basher kind of ship.
+this ships seeks the nearest enemy ship trying to bash them,
+if the enemy ship is close enough this ship will turn on her shield.
+
+-DrunkardShip.java:
+this is the class for the drunkard ship.
+this ship's driver had a little too much to drink,
+and sadly he fell asleep on the steering wheel,
+also the buttons to turn on shield and teleporing and under his sleepy head.
+so this ship will drive in circles, also trying to teleport and shielding.
+
+-HumanShip.java:
+this is the class for the Human ship.
+this ship is controlled by the user, using the keyboard keys to
+move, shoot, teleport and shielding.
+this ship has a different image than all other ships.
+
+-RunnerShip.java:
+this is the class for the Runner ship.
+this ship will always run away from enemies, and
+if the enemies will get close enough, she will teleport away.
+
+-SpecialShip.java:
+This is the class for the special ship.
+I made this ship to have an OpMode(overpowered mode),
+which if enemies gets too near, this ship will have
+no cooldown on shooting, shooting several times toward the enemy,
+and if the enemies gets closer, she teleport away.
+
+-SpaceShip.java:
+this is the main class, i chose this class to be abstract, while all other classes
+are her extends.
+this class represents all spaceships and thier main methods according to the api.
+each spaceship has her own:
+ShipPhysics, MaximalEnergy, CurrentEnergy, CurrHealth, HasShield, ShotCooldown.
+
+#####################
+#######design########
+#####################
+
+i chose the spaceship to be abstract, while all other classes
+are her extends. by choosing this way, its easy to add any new features to 
+each ship alone, in her class.
+also this way it is more understandable that all the ships are different
+kinds of spaceships.
+
+-extendablility:
+ i think that the way i made this exercise is easy to extend every kind of ship,
+so i think the extendablility is easy, because each ship has its own class and it
+is easy to just add methods to the existing classes.
+
+- modularity:
+i think the modularity is good, the program is seperated to each of the ships,
+making it understandable, also all the classes follow the api, and easy of the
+extends only uses the spaceship class and his class.
+
+- Intuitiveness and understandability:
+i think the code is easy to understand, because all class has her own porposes,
+and all the methods inside each class are for that class(except in spaceship,
+which is for all extends too).
+
+-Representation of the classes and their relationships:
+i wrote the classes before the design part(at the start of the README).
+all extends(Runner,Basher,Aggressive, Human, Special, Drunkard) are extends of the spaceship,
+which means they are different kinds of spaceship.
+and the factory is where the spaceships are made, so he creates them using the spaceship class.
+
+-Drunkard and special:
+i explain that in the beginning of this README, i described each class.
+
+
+

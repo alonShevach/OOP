@@ -1,0 +1,135 @@
+alon.shevach
+
+
+-SimpleHashSet.java:
+This class is the abstract class uses to represent a simpleHashSet,
+this class implements the simpleset class.
+this class keeps the protected methods for all its extends.
+
+-OpenHashSet.java:
+This class represents the OpenHashTable, this class extends the SimpleHashSet.
+The class uses the CollectionFacadeSet Class, and builts to each set a LinkedList
+Subset.
+
+-ClosedHashSet.java:
+this class represents a ClosedHashset.
+this class extends the SimpleHashSet class,
+using a inner class called stringObjWrapper,
+the class has 3 constructors and the class extends SimpleHashSet.
+
+-CollectionFacadeSet.java:
+a class represent a set,implements SimpleSet this class uses the facade we learned in class,
+the class gets any type of collection and implements the methods:
+contains, add, delete , size.
+
+-impleSetPerformanceAnalyzer.java:
+
+-RESULTS:
+
+#####################
+#######design########
+#####################
+
+implementation of OpenHashSet.java:
+i decided to use the CollectionFacadeSet in the OpenHashSet.
+i chose to do so because this way i could create an array of CollectionFacadeSet
+and to use it as a Wrapper of the TreeSet.
+this way i was using an implementation i already created,
+making it more understandable of what uses can be to the collectionFacadeSet.
+i chose using a TreeSet and not a linkedList because in a treeSet it will be
+more efficient to make the certain methods we are doing.
+
+implementation of the deletion mechanism in ClosedHashSet:
+In ClosedHashSet i decided to create a Wrapper Class, called StringObjWrapper.
+in the class i created each string value as a Wrapper type, and then each value can
+be "remembered" if deleted or not, because the object will remain as a StringObjWrapper
+we only change its "value" to null, then we know it is deleted.
+
+###########################################
+############Analyzing Results##############
+###########################################
+
+According to the tests, we can see that the Java's Hashset is the most efficient tool
+for HashSets that we tested.
+- Bad results on data1 in ClosedHashSet:
+we can see a big difference in ClosedHashSet adding the Data1 and finding the Negative in
+Data1 than in all other HashTables.
+the reason it happend is because all the numbers in Data1 are very "close" to each other,
+meaning they will all have almost identical Hashcodes, and when this happends they will
+all get to the same place and finding an "empty" cell will be difficult and will take more time.
+for finding the Negative number it will take alot of time from the same reason, it will come to
+the place where the number "should" be, and then it will go over all the cells it passed until
+it finds the right place, and because each cell contains only 1 string it will go over alot of
+cells.
+- Bad results for Data1 in OpenHashSet:
+in openHashSet we can see that it took most of the time adding the Data1.txt, the reason
+it happend is because alot of Strings had a simillar Hashcode, getting them to the same
+"cell" and then it took alot of time inserting them to the LinkedList.
+also when finding the right String in the linked list took alot of time because
+the list got bigger containing almost all of the text file.
+
+#################################################
+##############strengths and weaknesses###########
+#################################################
+OpenHashSet:
+
+This hashset is good if the user's main propose is to find values from the list, and not
+creating alot of lists, creating it once and then get values from it, also it is good only for
+user if he knows the values Hashcodes are different and not all alike.
+
+OpenHashSet Strengths:
+we can see that it takes a lot of time to build the OpenHashSet, but after building it,
+if we have an input that we know his value are very different, in the OpenHashSet we
+can see we will find the values very quick. finding the HI in the first time for 17 ns,
+and for the 2nd time in 4ns and finding the "23" in 9ns.
+
+OpenHashSet Weaknesses:
+it takes a lot of time building the Hashset, especially when the values are similar
+also if the values gets to the same "cell" it will take a lot of time finding the
+values in that specific cell.
+so the weaknesses is building time, and if we have an input that its values are similar(in HashCode).
+
+ClosedHashSet:
+This hashset is good if the user's main propose is to find values from the list, and not
+creating alot of lists, creating it once and then get values from it, also it is good only for
+user if he knows the values Hashcodes are different and not all alike.
+ClosedHashSet Strengths:
+we can see that it has pretty much the same Strengths,
+finding object when they are not similar(in HashCode) is taking really quick.
+
+ClosedHashSet Weaknesses:
+It takes a lot of time building the Set, Specially if the Hashcodes of the values are similar,
+also it takes a lot of time finding a value if its hashcode has a lot of values that have
+similar hashcode.
+
+FacadeTreeSet:
+i think the main use, if it is important to build the Hashset quickly, but less important for the
+user to find values in it.
+
+FacadeTreeSet Strengths:
+we can see that the treeSet is really easy to build, took 65 for data1 and 57 for data2(in ms).
+and it did not took much more time to find the objects with the similar Hashcode.
+
+FacadeTreeSet Weaknesses:
+The other Hashsets finds the objects much faster, so for finding values it is not good to use
+the TreeHashSet.
+
+FacadeLinkedList:
+According to the results, i cant really find a good reason besides if we know we have
+a lists with very similar Hashcodes.
+Strengths:
+inserting similar objects does not take a lot of time like in Closed or Open, but
+still takes alot of time.
+Weaknesses:
+Takes a lot of time to make(Faster than Closed and Open in Data1 but still bad time), it takes a lot
+of time to find values in the list.
+
+FacadeHashSet:
+I belive this is the best Hashset to use.
+use if we dont know anything about our input, and if we want to take out values fast,
+and create the Hashset fast.
+Strengths:
+Creating the HashSet really quick, a little slower for similar types, but still very quick.
+finding values was really quick, even for the one with the similar Hashcodes.
+weaknesses:
+if we know that the values are different, the Closed and Open are faster at finding the value.

@@ -1,0 +1,123 @@
+alon.shevach
+
+
+-BoopingSite.Java:
+A class that represents a site for searching hotels,
+the class is getting a file with hotels, and it searches for
+the right hotel by distance from point, and by Star Rating.
+this Class uses the oop.ex3.searchengine.
+
+-BoopingSiteTest.Java:
+This class is the test the BoopingSite.Java class.
+
+-Locker.Java:
+a class extending a Spaceshipdepository, this class represents a
+locker which is a spaceshipDepository.
+the locker can be added with items, remove items and has its maximum
+capacity given by the user.
+
+-LockerTest.Java:
+this class is the test of Locker.java.
+
+-LongTermStorage.java:
+a class represents the LongTermStorage of the ship,
+this class is extending the SpaceshipDepository.
+The locker uses this class when a single item takes more than 50
+percent of its capacity.
+this class can be added items, reset, and has a default max capacity.
+
+-LongTermTest.java:
+this class is the test of LongTermStorage.java.
+
+-SpaceshipDepository.Java:
+This class is an abstract class for LongTermStorage and Locker.
+This class has abstract methods and methods that are for all its
+extends.
+
+-SpaceshipDepositoryTest.Java:
+this class is the test of SpaceshipDepository.java.
+
+########################################################
+######## Comparators for BoopingSite.Java ##############
+########################################################
+
+-CompareHotelDistance.Java:
+the CompareHotelStarRate which implies the Comparator implement.
+this class main idea is to compare between Hotel type hotels by their
+distance from a given point, presented by latitude and longitude.
+
+-CompareHotelStarRate.Java:
+the CompareHotelStarRate which implies the Comparator implement.
+this class main idea is to compare between Hotel type hotels by their
+star ratings.
+
+########################################################
+############# Implementation for Storage ###############
+########################################################
+
+I chose to make an abstract class named SpaceShipDepository, that is
+the class that represent a type of storage in the spaceship, including
+the Locker and the LongtermStorage.
+I chose to make it this way because i noticed that the LongTermStorage class
+and the Locker has many method that are the same, using the same information and
+returning the same types, also the methods are named the same.
+i created this to prevent a copy code, that i have the same methods for
+different kind of classes.
+also if another storage type will be added to the Ship, we could add it easly
+by only adding some method and having the abstract methods that we have.
+
+-design:
+Locker:
+I created a static constant of LongTermStorage, and i created 2 private methods.
+
+-divideLockerAndLTS(Item item, int n):
+a method that is running when a certain type of item is added to the Locker,
+but the item type is taking 50 percent or more of the max capacity.
+this method divides the 20 percent needs to be in the locker, and adds the
+rest to the LongTernStorage.
+if the longtermstorage does not have room, returns -1, and adds nothing.
+
+- canAddBaseballOrFootball(Item item):
+a method that checks if it can add the given item, or not because of contradiction.
+
+I chose to implement them for the code design to be more readable, i found that the
+additem method is a little too long and hard to understand, so i divided those methods.
+
+-LongTermStorage:
+this design is different from Locker because the Longterm is not "aware" to
+the locker, while the locker is "aware" to the Longterm.
+also the locker has a maxcapacity given in the constructor, and the Longterm
+has a default capacity.
+implemented the method while using the methods from the abstract class.
+
+-SpaceShipDepository:
+implemented the methods that are the same for all the extends:
+getInventory, getItemCount, as methods in this abstract class.
+
+added 1 protected method,
+-GetItemIndex(Item item):
+a method returning the item index according to the allLegalTypesArr Array.
+@param item Item type item, to find his index
+@return the item's index in the allLegalTypesArr Array.
+
+########################################################
+########### Implementation for BoopingSite #############
+########################################################
+
+i chose to make 2 comparator, 1 for the getHotelsInCityByRating method and 1 for both
+getHotelsByProximity, getHotelsInCityByProximity.
+i chose this way because i noticed that it would be more understandable, also
+the other way of sorting would be long and difficult and this way is understandable
+and short.
+
+-design:
+i noticed that the methods getHotelsByProximity, getHotelsInCityByProximity are very similar
+by their purposes so i created a method that checks if it should find the proximity in a
+specified city, or not. this way i prevented code copy, and the code is short and understandable.
+the method i added is:
+-getHotelIsByProximityWithOrWIthoutCity(double latitude, double longitude, String city):
+which both getHotelsByProximity, getHotelsInCityByProximity call this method, with different city,
+1 calls with city = null, and the other give the method a city.
+
+i chose comparator for the design, because it is more understandable and more efficient.
+
